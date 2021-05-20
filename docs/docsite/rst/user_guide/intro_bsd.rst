@@ -27,11 +27,11 @@ Bootstrapping BSD
 Ansible is agentless by default, however, it requires Python on managed nodes. Only the :ref:`raw <raw_module>` module will operate without Python. Although this module can be used to bootstrap Ansible and install Python on BSD variants (see below), it is very limited and the use of Python is required to make full use of Ansible's features.
 
 The following example installs Python 2.7 which includes the json library required for full functionality of Ansible.
-On your control machine you can execute the following for most versions of FreeBSD:
+On your control machine you can execute the following for all supported versions of FreeBSD:
 
 .. code-block:: bash
 
-    ansible -m raw -a "pkg install -y python27" mybsdhost1
+    ansible -m raw -a "env ASSUME_ALWAYS_YES=yes pkg install python27" mybsdhost1
 
 Or for OpenBSD:
 
